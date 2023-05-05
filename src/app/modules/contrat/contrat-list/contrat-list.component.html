@@ -1,0 +1,49 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Archivee</th>
+    <th>Date Debut</th>
+    <th>Date Fin</th>
+    <th>Montant</th>
+    <th>Specialte</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor='let c of list;let i=index;'>
+    <td>{{c.idContrat}}</td>
+    <td>{{c.archive}}</td>
+    <td>{{c.dateDebutContrat}}</td>
+    <td>{{c.dateFinContrat}}</td>
+    <td>{{c.montantContrat}}</td>
+    <td>{{c.specialite}}</td>
+    <td style="display: flex;">
+<!--    <td>-->
+<!--      <button class="btn btn-primary" routerLink="details/{{c.idContrat}}">Détails</button>-->
+<!--      <button class="btn btn-danger" (click)="deleteContrat(c.idContrat)">Supprimer</button>-->
+<!--      <button class="btn btn-warning" routerLink="ajouter/{{c.idContrat}}">Modifier</button>-->
+<!--      <button class="btn btn-info" *ngIf="c.archive==false" (click)="archiverContrat(c.idContrat)">Archiver</button>-->
+      <button type="button" class="btn btn-outline-primary" routerLink="details/{{c.idContrat}}"
+      ><img src="../../../assets/img/eye3.png" width="30" height="20"/>
+      </button>
+      &nbsp;
+      <button type="button" class="btn btn-outline-success" routerLink="ajouter/{{c.idContrat}}"
+      ><img src="../../../assets/img/edit.png" width="30" height="20"/>
+      </button> &nbsp;
+      <button type="button" class="btn btn-outline-danger" (click)="deleteContrat(c.idContrat)"
+      ><img src="../../../assets/img/pobelle.png" width="30" height="20"/>
+      </button>&nbsp;
+      <button type="button" class="btn btn-outline-warning" *ngIf="c.archive==false" (click)="archiverContrat(c.idContrat)"
+      ><img src="../../../assets/img/archive.png" width="30" height="20"/>
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button class="btn btn-secondary" routerLink="ajouter">Ajouter Contrat</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

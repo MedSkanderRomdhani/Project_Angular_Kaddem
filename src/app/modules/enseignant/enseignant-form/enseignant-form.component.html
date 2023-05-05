@@ -1,0 +1,139 @@
+<!-- <form class="row g-3" #f="ngForm" (ngSubmit)="ajouterEnseignant()">
+    <div class="form-group">
+      <label class="form-label">Nom:</label>
+      <br>
+      <input type="nomEns" class="form-control" name="nom" [(ngModel)]="enseignant.nomEns">
+    </div>
+   
+    <div *ngIf="form.get('nom')?.errors?.['required']" class="alert alert-danger" role="alert">
+      Champ Obligatoire et <br/>
+      il doit contenir au moins 5 caractéres
+    </div>
+   
+  
+    <div class="form-group">
+      <label class="form-label">Prenom:</label>
+      <br>
+      <input type="prenomEns" class="form-control" name="prenom" [(ngModel)]="enseignant.prenomEns">
+    </div>
+    <div *ngIf="form.get('prenom')?.errors?.['required']" class="alert alert-danger" role="alert">
+      Champ Obligatoire et <br/>
+      il doit contenir au moins 5 caractéres
+    </div>
+
+  
+    <div class="form-group">
+        <label class="form-label">Fonction:</label>
+        <br>
+        <select class="form-select"   name="fonction" [(ngModel)]="enseignant.fonctionEns">
+          <option value="CHEF_DEPARTEMENT">CHEF_DEPARTEMENT</option>
+          <option value="RESP_OPTION">RESP_OPTION</option>
+          <option value="DIRECTEUR">DIRECTEUR</option>
+          <option value="ENSEIGNANT">ENSEIGNANT</option>
+        </select>
+      </div>
+      <div *ngIf="form.get('fonction')?.errors?.['required']" class="alert alert-danger" role="alert">
+        Champ Obligatoire
+      </div>
+
+    <div class="form-group">
+      <label class="form-label">Salaire:</label>
+      <br>
+      <input type="salaire" class="form-control" name="salaire" [(ngModel)]="enseignant.salaireEns">
+    </div>
+    <div *ngIf="form.get('salaire')?.errors?.['required']" class="alert alert-danger" role="alert">
+      Champ Obligatoire
+    </div>
+    <div *ngIf="form.errors?.['LowerThan']" class="alert alert-danger" role="alert">
+      Il faut mettre le salaire
+    </div>
+  
+    <div class="form-group">
+      <label class="form-label">Date Recrutement:</label>
+      <br>
+      <input type="date" class="form-control" name="Date" [(ngModel)]="enseignant.dateRecrutement">
+    </div>
+    <div *ngIf="form.get('dateRecrutement')?.errors?.['required']" class="alert alert-danger" role="alert">
+      Champ Obligatoire
+    </div>
+  
+    
+    <div class="text-center">
+      <input class="btn btn-success" type="submit" value="Ajouter">
+    </div>
+  </form>
+   -->
+   <div class="log">
+    <h4 class="text-center pt-2">Ajout Enseignant</h4>
+                <div class="container-fluid center offset-3">
+    
+        <div class="row">
+            <div class=" col-md-12">
+                <div class="card w-50 ">
+                    <div class="card-header w-100">
+                        <h4>Ajout Enseignant
+                            <a routerLink="/enseignants" class="btn btn-danger float-end">Retour</a>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form  #f="ngForm"  (ngSubmit)="ajouterEnseignant()">
+         <div class="mb-2 w-100">
+            <label class="form-label">Nom</label>
+             <input type="text" class="form-control" required  minlength="5"  name="nom" [(ngModel)]="enseignant.nomEns" #first="ngModel">
+                <div *ngIf="first.invalid " class="alert alert-danger">
+                    <div *ngIf="first.hasError('required')" class=""> 
+                        Nom obligatoire
+                    </div>
+                    <div *ngIf="first.errors?.['minlength']"> 
+                       Minimum cinq caractéres
+                    </div>
+                </div>
+         </div>
+    
+         <div class="mb-3 w-100">
+            <label class="form-label">Prenom</label>
+            <input type="text"   class="form-control" required  minlength="5"  name="prenom" [(ngModel)]="enseignant.prenomEns" #last="ngModel">
+                   <div [hidden]="last.valid" class="alert alert-danger"> 
+                       Prenom  obligatoire
+                   </div>
+                   <div *ngIf="last.errors?.['minlength']" class="alert alert-danger"> 
+                    Minimum cinq caractéres
+                 </div>
+         </div>
+         <div class="mb-3 w-100">
+          <label class="form-label">Fonction</label>
+          <select class="form-select"  name="fonction" [(ngModel)]="enseignant.fonction" #matiere="ngModel">
+            <option value="CHEF_DEPARTEMENT">CHEF_DEPARTEMENT</option>
+            <option value="RESP_OPTION">RESP_OPTION</option>
+            <option value="DIRECTEUR">DIRECTEUR</option>
+            <option value="ENSEIGNANT">ENSEIGNANT</option>
+          </select>
+                <div [hidden]="matiere.valid || matiere.untouched" class="alert alert-danger"> 
+                    Fonction obligatoire
+                </div>
+         </div>
+         <div class="mb-3 w-100">
+            <label class="form-label">Salaire</label>
+            <input type="email" class="form-control"  required  name="salaire" [(ngModel)]="enseignant.salaire" #email="ngModel">
+                
+                  <div *ngIf="email.hasError('required')" class="alert alert-danger">
+                     Salaire obligatoire
+                  </div>
+         </div>
+        
+         <div class="mb-3 w-100">
+            <label class="form-label">Date Recrutement</label>
+            <input type="Date" class="form-control" required [(ngModel)]="enseignant.dateRecrutement" #pass="ngModel" name="Date">
+        
+            <div *ngIf="pass.hasError('required') " class="alert alert-danger">
+                  Champ obligatoire 
+                 </div>
+         </div>
+            <div class="mb-3 w-100">
+                <input class="btn btn-success" [disabled]="f.invalid" type="submit" value="Enregistrer" >
+        </div>
+    
+       
+    </form>
+    </div>
+    </div>

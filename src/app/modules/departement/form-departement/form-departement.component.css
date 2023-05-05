@@ -1,0 +1,39 @@
+/* .container{
+   margin-left: 5px;
+
+
+} */
+.container{
+  text-align: left;
+  padding-top: 250px;
+
+
+}
+h1{
+  color: rgb(44, 105, 146);
+  text-align: left;
+  margin-bottom: 20px;
+
+}
+.btn{
+  margin-top: 10px;
+
+}
+.col-form-label{
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:20px;
+}
+.img{
+ float: right;
+ padding-top: 100px;
+ padding-right: 100px;
+}
+.liste{
+  display: table;
+  float: left;
+  margin-left: 2px;
+  padding-left: 5px;
+/* width: 1000px;
+padding-left: 100px; */
+}
+

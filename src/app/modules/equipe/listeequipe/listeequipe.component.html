@@ -1,0 +1,38 @@
+<div >
+    <table class="table table-striped text-center  ">
+        <thead>
+          <tr class="c1 "[ngClass]>
+            <th scope="col">idEquipe</th>
+            <th scope="col">nomEquipe</th>
+            <th scope="col"> niveau</th>
+            <th scope="col"> Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let equipe of listEquipe" >
+            <th scope="row">{{equipe.idEquipe}}</th>
+            <td>{{equipe.nomEquipe}}</td>
+            <td>{{equipe.niveau}}</td>
+            <td>
+              
+              <button type="button" (click)="delete(equipe.idEquipe)" class="btn btn-outline-danger mx-2" ><i class="gg-trash"></i></button>
+              <button type="button"(click)="update(equipe)" class="btn btn-outline-dark mx-2" data-bs-dismiss="modal" aria-label="Close"  [routerLink]="['update', equipe.idEquipe]" ><img src="../../../assets/img/edit.png" width="30" height="20"/></button>
+              <button type="button" (click)="OngetDetailEquipe(equipe.idEquipe)" class="btn btn-outline-primary mx-2" data-bs-toggle="modal"
+              data-bs-target="#verticalycentered" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="gg-eye"></i></button>
+              <button type="button" (click)="countEtudiants(equipe.idEquipe)" class="btn btn-outline-danger mx-2" id="liveToastBtn" >count</button>
+            </td>
+          
+            
+          </tr>
+         
+        </tbody>
+      </table>
+      
+          <div class="card text-center" [ngStyle]="{'background-color':'pink','width':'30px','font-size':'30px'}">
+            {{nb}}
+          </div>
+        
+      
+    </div>
+    <router-outlet></router-outlet>
+<app-detail-equipe [DetE]="de"></app-detail-equipe>

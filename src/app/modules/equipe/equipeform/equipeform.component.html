@@ -1,0 +1,57 @@
+
+<form  class="row g-3" #f="ngForm" (ngSubmit)="addEquipe()" (keyup)="verif(f)">
+    <table>
+      <div ngModelGroup="firstInfo" #sg="ngModelGroup">
+        <div class="col-md-4">
+        <tr>
+          <label class="form-Label mx-2">Nom Equipe</label>
+          <td ><input type="text" required minlength="5" pattern="[a-zA-Z]*" name="nomEquipe" size="150"  class="input" 
+              [(ngModel)]="equipe.nomEquipe" #name="ngModel">
+              
+            <div *ngIf="name.invalid" [ngClass]="name.invalid? 'red' : 'green'">>
+              <div *ngIf="name.hasError('required')" class="alert alert-danger" role="alert">
+                Name obligatoire
+              </div>
+              <div *ngIf="name.errors['minlength']" class="alert alert-danger" role="alert">
+                Name contient au minimum {{name.errors?.['minlength'].requiredLength}} caratctères alors que vous avez
+                écrit
+                {{name.errors?.['minlength'].actualLength}}
+              </div>
+              <div *ngIf="name.errors?.['pattern']" class="alert alert-danger" role="alert">
+                Name ne doit contenir que des lettres
+              </div>
+            </div>
+          </td>
+          
+        </tr>
+      </div>
+        <tr>
+        
+         <label for="Niveau" class="mx-2">Niveau</label>
+  
+          <select name="Niveau" [(ngModel)]="equipe.niveau" class="select" #niveau="ngModel">
+            <option value="">--Please choose an option--</option>
+            <option value="JUNIOR">JUNIOR</option>
+            <option value="SENIOR">SENIOR</option>
+            <option value="EXPERT">EXPERT</option>
+          </select>
+        </tr>
+        <div *ngIf="niveau.hasError('required')" class="alert alert-danger" role="alert">
+          Champ obligatoire
+        </div>
+        <tr>
+        <div class="container">
+          <label for="image" class= "text-center custom-class">Upload Equipe Picture</label>
+          <input type= "file" class= "btn btn-success btn-sm" (change) ="selectFiles($event)">
+          </div>
+          
+        </tr>
+        
+      
+      <tr>
+        <button type="button" (click)="addEquipe()" class="btn btn-warning" [disabled]="f.invalid">Add Equipe </button>
+      </tr>
+    </div>
+    </table>
+  </form>
+  

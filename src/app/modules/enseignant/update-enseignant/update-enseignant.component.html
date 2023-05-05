@@ -1,0 +1,25 @@
+<form [formGroup]="form"><label class=" col-form-label ">Nom </label>
+    <input type="text" class="form-control" formControlName="nomEns"
+           [(ngModel)]="enseignant.nomEns" size="40px">
+    <label class=" col-form-label ">Prenom </label>
+    <input type="text" class="form-control" formControlName="prenomEns"
+           [(ngModel)]="enseignant.prenomEns" size="40px">
+           <label class=" col-form-label ">salaire </label>
+           <input type="text" class="form-control" formControlName="salaire"
+           [(ngModel)]="enseignant.salaire" size="40px">
+    <label class=" col-form-label ">Fonction </label>
+    <select class="form-select" formControlName="fonction" name="fonction" [(ngModel)]="enseignant.fonction">
+      <option value="CHEF_DEPARTEMENT">CHEF_DEPARTEMENT</option>
+      <option value="RESP_OPTION">RESP_OPTION</option>
+      <option value="DIRECTEUR">DIRECTEUR</option>
+      <option value="ENSEIGNANT">ENSEIGNANT</option>
+    </select>
+           <label class=" col-form-label ">Date Recrutement</label>
+    <input type="text" class="form-control" formControlName="dateRecrutement"
+           [(ngModel)]="enseignant.dateRecrutement" size="40px">
+    <div *ngIf="form.invalid " style="color: red;">
+    </div>
+    <td>
+        <button class="btn btn-secondary" (click)="ModiferEns()">Enregistrer</button>
+      </td>
+  </form>

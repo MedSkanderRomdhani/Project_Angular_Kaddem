@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+        <div class="form-group">
+        <label for="salle" class="col-sm-2 col-form-label ">salle: </label> 
+        <br>
+        <input type="text" class="form-control" formControlName="salle" [(ngModel)]="de.salle">
+        </div>
+        <div *ngIf="form.get('salle')?.errors?.['required']" class="alert alert-danger" role="alert" style="color: red;" >
+                salle obligatoire
+            </div>
+            <div *ngIf="form.get('salle')?.errors?.['pattern']" class="alert alert-danger" role="alert" style="color: red;" >
+                pattern invalid
+            </div>
+        <br>  
+        <div class="form-group">                   
+        <label for="thematique" class="col-sm-2 col-form-label ">Thematique:</label> 
+        <br>
+         <input type="text" class="form-control" formControlName="thematique"  [(ngModel)]="de.thematique">
+        </div>
+            <div *ngIf="form.get('thematique')?.errors?.['required']" class="alert alert-danger" role="alert" style="color: red;">
+            thematique obligatoire
+        </div> <br>
+    <div class="text-center">
+    <button class="btn btn-success" type="submit" [disabled]="form.invalid" routerLink='/equipe' (click)="ajouterDetailEquipe()"> update</button>
+    </div>
+</form> 
+ 
+  

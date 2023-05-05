@@ -1,0 +1,28 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title " id="exampleModalLabel">Details Equipes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <ul class="list-group">
+                        <img src="/assets/img/travail.webp">
+                        <li class="list-group-item list-group-item-action text-center list-group-item-primary">idDetailEquipe:  {{DetE.idDetailEquipe}}</li>
+                        <li class="list-group-item list-group-item-action text-center list-group-item-primary">Salle:  {{DetE.salle}}</li>
+                        <li class="list-group-item list-group-item-action text-center list-group-item-primary">Thematique:  {{DetE.thematique}}</li>
+                    </ul>
+
+
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['edit',DetE.idDetailEquipe]">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>

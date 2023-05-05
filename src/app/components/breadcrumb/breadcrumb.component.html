@@ -1,0 +1,11 @@
+<!--<p>breadcrumb works!</p>-->
+<div class="pagetitle">
+  <h1>{{getComponent()}}</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item" *ngIf="getComponent.length!=0">{{getComponent()}}</li>
+      <li class="breadcrumb-item active" *ngIf="getFunction().length!=0">{{getFunction()}}</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->

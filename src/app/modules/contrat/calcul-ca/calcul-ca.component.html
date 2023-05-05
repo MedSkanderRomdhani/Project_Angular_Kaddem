@@ -1,0 +1,42 @@
+<div style="display: flex;width: 100%;justify-content: center">
+  <div class="col-lg-6">
+    <form #formAjout="ngForm" autocomplete="off" (ngSubmit)="calculerCA()">
+      <div class="form-group">
+        <label>Start Date:</label>
+        <br>
+        <input type="date" class="form-control" name="startdate" required [(ngModel)]="startdate">
+      </div>
+      <div class="form-group">
+        <label>End Date:</label>
+        <br>
+        <input type="date" class="form-control" name="enddate" required [(ngModel)]="enddate">
+      </div>
+      <br>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success" [disabled]="formAjout.invalid">Calculer</button>
+      </div>
+      <br>
+    </form>
+  </div>
+</div>
+<!-- Revenue Card -->
+<div class="cacard" style="display: flex;width: 100%;justify-content: center">
+  <div *ngIf="chiffre" class="col-xxl-4 col-md-6">
+    <div class="card info-card revenue-card">
+
+      <div class="card-body">
+        <h5 class="card-title">Chiffre d'Affaire Total <span>| Entre {{startdate}} & {{enddate}}</span></h5>
+
+        <div class="d-flex align-items-center">
+          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+            <i class="bi bi-currency-dollar"></i>
+          </div>
+          <div class="ps-3">
+            <h4>{{chiffre}} DT</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- End Revenue Card -->
+</div>

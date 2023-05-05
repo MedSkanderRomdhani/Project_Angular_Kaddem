@@ -1,0 +1,65 @@
+<form class="row g-3" [formGroup]="form" (ngSubmit)="ajouterContrat()">
+  <div class="form-group">
+    <label class="form-label">Archive:</label>
+    <br>
+    <select class="form-select" formControlName="archive" [(ngModel)]="contrat.archive">
+      <option value="true">True</option>
+      <option value="false">False</option>
+    </select>
+  </div>
+  <div *ngIf="form.get('archive')?.errors?.['required']" class="alert alert-danger" role="alert">
+    Champ Obligatoire
+  </div>
+  <div *ngIf="form.get('archive')?.errors?.['pattern']" class="alert alert-danger" role="alert">
+    Peut etre 0 ou 1
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Date Debut:</label>
+    <br>
+    <input type="date" class="form-control" formControlName="dateDebutContrat" [(ngModel)]="contrat.dateDebutContrat">
+  </div>
+  <div *ngIf="form.get('dateDebut')?.errors?.['required']" class="alert alert-danger" role="alert">
+    Champ Obligatoire
+  </div>
+
+
+  <div class="form-group">
+    <label class="form-label">Date Fin:</label>
+    <br>
+    <input type="date" class="form-control" formControlName="dateFinContrat" [(ngModel)]="contrat.dateFinContrat">
+  </div>
+  <div *ngIf="form.get('dateFin')?.errors?.['required']" class="alert alert-danger" role="alert">
+    Champ Obligatoire
+  </div>
+  <div *ngIf="form.errors?.['LowerThan']" class="alert alert-danger" role="alert">
+    Date Debut ne peut pas apres date Fin
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Montant:</label>
+    <br>
+    <input type="number" class="form-control" formControlName="montantContrat" [(ngModel)]="contrat.montantContrat">
+  </div>
+  <div *ngIf="form.get('montant')?.errors?.['required']" class="alert alert-danger" role="alert">
+    Champ Obligatoire
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Specialite:</label>
+    <br>
+    <select class="form-select" formControlName="specialite" [(ngModel)]="contrat.specialite">
+      <option value="IA">IA</option>
+      <option value="RESEAUX">RESEAUX</option>
+      <option value="CLOUD">CLOUD</option>
+      <option value="SECURITE">SECURITE</option>
+    </select>
+  </div>
+  <div *ngIf="form.get('specialite')?.errors?.['required']" class="alert alert-danger" role="alert">
+    Champ Obligatoire
+  </div>
+  <div class="text-center">
+    <button class="btn btn-success" type="submit" [disabled]="form.invalid">Enregistrer</button>
+  </div>
+  <br>
+</form>

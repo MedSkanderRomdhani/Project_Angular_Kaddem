@@ -1,0 +1,25 @@
+<form class="row g-3" [formGroup]="form" (ngSubmit)="ajouterUniversite()">
+  <div class="form-group">
+    <label class="form-label">Nom Universite:</label>
+    <br>
+    <input type="text" class="form-control" formControlName="nomUniv" [(ngModel)]="universite.nomUniv">
+  </div>
+  <div *ngIf="form.get('nomUniv')?.errors?.['required']" class="alert alert-danger" role="alert">
+    Champ Obligatoire
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Adresse Universite:</label>
+    <br>
+    <input type="text" class="form-control" formControlName="adresse" [(ngModel)]="universite.adresse">
+  </div>
+  <div *ngIf="form.get('adresse')?.errors?.['required']" class="alert alert-danger" role="alert">
+    Champ Obligatoire
+  </div>
+
+
+  <div class="text-center">
+    <button class="btn btn-success" type="submit" [disabled]="form.invalid">Ajouter</button>
+  </div>
+</form>
+<router-outlet></router-outlet>

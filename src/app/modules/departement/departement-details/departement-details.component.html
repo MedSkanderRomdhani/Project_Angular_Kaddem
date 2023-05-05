@@ -1,0 +1,31 @@
+<div>
+<div class="w3-row w3-padding-64" id="about">
+  <div class="w3-col m6 w3-padding-large w3-hide-small">
+    <button class="btn btn-secondary" routerLink="/departement">Retour</button>
+   <img src="../../../assets/img/design-illustration-2.svg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="800" height="900">
+  </div>
+
+  <div class="w3-col m6 w3-padding-large">
+    <h1 class="w3-center">Département {{Dept.nomDepart}} </h1><br>
+    <div style="color: rgb(106, 23, 122);">
+    <h4> Id : {{Dept.idDepart}}</h4>
+    <h4  *ngFor='let e of Enseignant;' >Chef du département: {{e.nomEns}} {{e.prenomEns}}</h4>
+    <h4>Nombre d'étudiants: {{nbEtudiants}}</h4>
+    <h4>Nombre d'enseignants: {{nbEnseignants}}</h4>
+    <div *ngIf="nbEnseignants">
+         <h4>Salaire Moyen: {{salaireMoyen}}</h4>
+</div>
+  </div>
+  <br/>
+  <div *ngIf="nbEnseignants">
+  <button class="btn btn-secondary" (click)="showForm()">Max Salaire Enseignants</button>
+</div>
+
+  </div>
+  <div class="w3-col m6 w3-padding-large">
+    <app-enseignant *ngIf="show" [id]="Dept.idDepart"></app-enseignant>
+  </div>
+</div>
+
+
+</div>
